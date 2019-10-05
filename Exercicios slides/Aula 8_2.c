@@ -1,42 +1,46 @@
 #include<stdio.h>
-#include<locale.h>
 #include<math.h>
+#include<locale.h>
 
 int main(){
-	setlocale(LC_ALL, "portuguese");	
+	setlocale(LC_ALL, "portuguese");
 	
-	int i, ms = 0, ps = 0, pn = 0, h = 0;
-	float hn = 0;
 	char s, r;
+	float ch = 0;
+	int i, c1 = 0, c2 = 0, c3 = 0, c4 = 0;
 	
-	for(i = 0; i < 10; i++){
-		printf("Digite seu sexo e sua resposta: \n");
-		scanf("%c", &s);
-		scanf("%c", &r);
+	for(i = 0; i < 5; i++){
+		
+		printf("Digite seu sexo e sua resposta: .\n");
+		scanf(" %c", &s);
+		scanf(" %c", &r);
 		
 		if(r == 's'){
-			ps++;
+			c1++;
+			if(s == 'f'){
+				c3++;
+			}
+			
+		}
+		
+		if(r == 'n'){
+			c2++;
 			if(s == 'm'){
-				ms++;
+				ch++;
 			}
-			if(s == 'h'){
-				h++;
-			}
-		}else{
-			if(r == 'n'){
-				pn++;
-				if(s == 'h'){
-					h++;
-					hn++;
-				}
-			}
+		}
+		
+		if(s == 'm'){
+			c4++;
 		}
 	}
 	
-	printf("Números de pessoas que responderam sim: %.0f.\n", ps);
-	printf("Números de pessoas que responderam não: %.0f.\n", pn);
-	printf("Números de mulheres que responderam sim: %.0f.\n", ms);
-	printf("Percentual de homens que disseram não entre os homens: %.1f%%.\n", (hn/h)*100);
+	printf("Pessoas que responderam sim: %d.\n", c1);
+	printf("Pessoas que responderam não: %d.\n", c2);
+	printf("Mulheres que responderam sim: %d. \n", c3);
+	printf("Porcentagem de homens que responderam não, entre todos os homens: %.2f%%.\n", (ch / c4) * 100);
+	
+	
 	
 	
 	
